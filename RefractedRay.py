@@ -1,5 +1,5 @@
 #@author: ali.akgun
-#@date: 10.12.2020
+#@date: 12.12.2020
 #@to do:
 #@bugs:
 #@brief:
@@ -11,12 +11,11 @@ class RefractedRay:
     #@refractive_index2: Represents refractive index of medium.
     #Refracted ray is going from interface to second medium.
     
-    def __init__(self, incident_angle, refractive_index1, refractive_index2):
+    def __init__(self, incident_angle, refractive_index1, refractive_index2, x_coordinate):
         self.incident_angle = incident_angle
         self.refractive_index1 = refractive_index1
         self.reftactive_index2 = refractive_index2
-        refracted_angle = refractive_index1 * math.sin(incident_angle)
-
+        
     #@brief: we defined y and x as coordinates of refracted ray.
     #This ray placed at 2. quarter of cartesian coordinate system.
     #x = [x1, x2] y = [y1, y2] >>x and y list stored first and second points
@@ -26,17 +25,19 @@ class RefractedRay:
     #Slope can be defined as: (y - 0) / (x - 0).
     #y = mx + n, n = 0, y - 0 = m(x - 0) >>> y = mx.
         
-    def get_line_coordinates(self, incident_angle):
-        slope = math.tan(incident_angle)
-        x_coordinate = [-10, 0]
-        y_coordinate = [slope * x_coordinate[0], 0]
+    def get_y_coordinates(self, incident_angle):
+        
+        refractive_angle = refractive_index1 * math.sin(incident_angle)
+        refractive_angle = refractive_angle / refractive_index2
+        refractive_angle = math.asin(refractive_angle)
+        refractive_angle = refractive_angle * ((2 * math.pi) / 360)
+        slope = math.tan(refractive_angle)
+        return [0, slope * x_coordinate[1]]
 
 incident_angle = 30
-incident_angle = incident_angle * (2 * math.pi / 360)
-slope =  math.tan(incident_angle)
-x_coordinate = [-10, 0]
-y_coordinate = [slope * x_coordinate[0], 0]
-print(x_coordinate[0], y_coordinate[0])
-plt.plot(x_coordinate, y_coordinate)
+refractive_index1 = 1
+refractive_index2 = 1.2
+x_coordinate = [0, 10]
+ray2 = RefractedRay(incident_angle, refractive_index1, refractive_index2, x_coordinate)
+plt.plot(x_coordinate, ray2.get_y_coordinates(incident_angle))
 plt.show()
-
