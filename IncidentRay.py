@@ -3,14 +3,17 @@
 #@to do:
 #@bugs:
 #@brief:
+
 import math
 import matplotlib.pyplot as plt
 class IncidentRay:
+    
     #####################################################################
     #@incident_angle: Represents incident angle of incoming ray.        #
     #@x_coordinate: Represents x coordinates of incident ray as a lsit. #
     #Incoming ray is going from first medium to second medium.          #
     #####################################################################
+    
     def __init__(self, incident_angle, x_coordinate):
         self.incident_angle = incident_angle
         self.x_coordinate = x_coordinate
@@ -29,15 +32,13 @@ class IncidentRay:
     #@incident_ray: Defines angle between normal and incident ray.           #
     #@retun: y_coordinates of incident ray.                                  #
     ##########################################################################
-    def get_line_coordinates(self, incident_angle):
-        incident_angle = incident_angle * ((2 * math.pi) / 360)
-        slope = math.tan(incident_angle)
+    def get_y_coordinates(self, incident_angle):
+        
+        slope = math.tan(math.radians(incident_angle))
         return [0, slope * x_coordinate[1]]
 
-incident_angle = 30
-x_coordinate = [0, -10]
-ray1 = IncidentRay(incident_angle, x_coordinate)
-plt.plot(ray1.x_coordinate, ray1.get_line_coordinates(incident_angle))
-plt.show()
-
-
+#incident_angle = 30
+#x_coordinate = [0, -10]
+#ray1 = IncidentRay(incident_angle, x_coordinate)
+#plt.plot(ray1.x_coordinate, ray1.get_y_coordinates(incident_angle))
+#plt.show()
