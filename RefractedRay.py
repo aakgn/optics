@@ -34,10 +34,10 @@ class RefractedRay:
         slope = math.tan(refractive_angle)
         return [0, slope * x_coordinate[1]]
 
-incident_angle = 30
-refractive_index1 = 1
-refractive_index2 = 1.2
-x_coordinate = [0, 10]
-ray2 = RefractedRay(incident_angle, refractive_index1, refractive_index2, x_coordinate)
-plt.plot(x_coordinate, ray2.get_y_coordinates(incident_angle))
-plt.show()
+#incident_angle = 30
+#refractive_index1 = 1
+#refractive_index2 = 1.2
+##x_coordinate = [0, 10]
+#ray2 = RefractedRay(incident_angle, refractive_index1, refractive_index2, x_coordinate)
+#plt.plot(x_coordinate, ray2.get_y_coordinates(incident_angle))
+#plt.show()
