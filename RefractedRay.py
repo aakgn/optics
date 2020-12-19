@@ -1,5 +1,5 @@
 #@author: ali.akgun
-#@date: 12.12.2020
+#@date: 19.12.2020
 #@to do:
 #@bugs:
 #@brief:
@@ -25,19 +25,11 @@ class RefractedRay:
     #Slope can be defined as: (y - 0) / (x - 0).
     #y = mx + n, n = 0, y - 0 = m(x - 0) >>> y = mx.
         
-    def get_y_coordinates(self, incident_angle):
+    def get_y_coordinates(self):
         
-        refractive_angle = refractive_index1 * math.sin(incident_angle)
+        refractive_angle = refractive_index1 * math.sin(math.radians(incident_angle))
         refractive_angle = refractive_angle / refractive_index2
-        refractive_angle = math.asin(refractive_angle)
-        refractive_angle = refractive_angle * ((2 * math.pi) / 360)
-        slope = math.tan(refractive_angle)
+        refractive_angle = math.asin(math.radians(refractive_angle))
+        slope = math.tan(math.radians(refractive_angle))
         return [0, slope * x_coordinate[1]]
 
-#incident_angle = 30
-#refractive_index1 = 1
-#refractive_index2 = 1.2
-##x_coordinate = [0, 10]
-#ray2 = RefractedRay(incident_angle, refractive_index1, refractive_index2, x_coordinate)
-#plt.plot(x_coordinate, ray2.get_y_coordinates(incident_angle))
-#plt.show()
