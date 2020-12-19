@@ -32,7 +32,8 @@ class IncidentRay:
     #@incident_ray: Defines angle between normal and incident ray.           #
     #@retun: y_coordinates of incident ray.                                  #
     ##########################################################################
-    def get_y_coordinates(self, incident_angle):
+        
+    def get_y_coordinates(self):
         
         slope = math.tan(math.radians(incident_angle))
         return [0, slope * x_coordinate[1]]
@@ -40,5 +41,5 @@ class IncidentRay:
 #incident_angle = 30
 #x_coordinate = [0, -10]
 #ray1 = IncidentRay(incident_angle, x_coordinate)
-#plt.plot(ray1.x_coordinate, ray1.get_y_coordinates(incident_angle))
+#plt.plot(ray1.x_coordinate, ray1.get_y_coordinates())
 #plt.show()
