@@ -1,10 +1,10 @@
 #@author: ali.akgun
-#@date: 19.12.2020
+#@date: 20.12.2020
 #@to do:
 #@bugs:
 #@brief:
 import math
-import matplotlib.pyplot as plt
+
 class RefractedRay:
     
     #@Refracted_angle: Represents refracted angle of refracted ray.
@@ -14,7 +14,8 @@ class RefractedRay:
     def __init__(self, incident_angle, refractive_index1, refractive_index2, x_coordinate):
         self.incident_angle = incident_angle
         self.refractive_index1 = refractive_index1
-        self.reftactive_index2 = refractive_index2
+        self.refractive_index2 = refractive_index2
+        self.x_coordinate = x_coordinate
         
     #@brief: we defined y and x as coordinates of refracted ray.
     #This ray placed at 2. quarter of cartesian coordinate system.
@@ -27,9 +28,10 @@ class RefractedRay:
         
     def get_y_coordinates(self):
         
-        refractive_angle = refractive_index1 * math.sin(math.radians(incident_angle))
-        refractive_angle = refractive_angle / refractive_index2
-        refractive_angle = math.asin(math.radians(refractive_angle))
+        refractive_angle = self.refractive_index1 * math.sin(math.radians(self.incident_angle))
+        refractive_angle = refractive_angle / self.refractive_index2
+        refractive_angle = math.asin(refractive_angle)
         slope = math.tan(math.radians(refractive_angle))
-        return [0, slope * x_coordinate[1]]
+        return [0, slope * self.x_coordinate[1]]
+
 
