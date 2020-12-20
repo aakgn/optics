@@ -1,11 +1,11 @@
 #@author: ali.akgun
-#@date: 19.12.2020
+#@date: 20.12.2020
 #@to do:
 #@bugs:
 #@brief:
 
 import math
-import matplotlib.pyplot as plt
+
 class IncidentRay:
     
     #####################################################################
@@ -35,11 +35,7 @@ class IncidentRay:
         
     def get_y_coordinates(self):
         
-        slope = math.tan(math.radians(incident_angle))
-        return [0, slope * x_coordinate[1]]
+        slope = math.tan(math.radians(self.incident_angle))
+        return [0, slope * self.x_coordinate[1]]
 
-#incident_angle = 30
-#x_coordinate = [0, -10]
-#ray1 = IncidentRay(incident_angle, x_coordinate)
-#plt.plot(ray1.x_coordinate, ray1.get_y_coordinates())
-#plt.show()
+
