@@ -1,5 +1,5 @@
 #@author: ali.akgun
-#@date: 20.12.2020
+#@date: 21.12.2020
 #@to do:
 #@bugs:
 #@brief:
@@ -31,7 +31,7 @@ class RefractedRay:
         refractive_angle = self.refractive_index1 * math.sin(math.radians(self.incident_angle))
         refractive_angle = refractive_angle / self.refractive_index2
         refractive_angle = math.asin(refractive_angle)
-        slope = math.tan(math.radians(refractive_angle))
+        slope = math.tan(refractive_angle)
         return [0, slope * self.x_coordinate[1]]
 
 
